@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Votre avis sur les ateliers mémoire · UFOLEP</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--main:#037f7e;--main-dk:#025f5e;--rose:#d0004e;--orange:#ee8010;--vert:#5c8a14;--txt:#28292b;--bg:#f3f5f5;--line:#b9c4c4}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:"Open Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:20px;line-height:1.5}
+.band{height:8px;background:linear-gradient(90deg,#b53387,#e20054 24%,#ee8010 47%,#afcc57 74%,#04a1a0)}
+.wrap{max-width:680px;margin:0 auto;padding:0 18px 48px}
+header.top{padding:22px 0 8px}
+header.top .org{margin:0;font-weight:700;color:var(--main);font-size:18px;letter-spacing:.02em;text-transform:uppercase}
+h1{font-size:30px;line-height:1.25;margin:6px 0 12px;font-weight:800}
+.pill{display:inline-block;background:#fff;border:2px solid var(--main);color:var(--main-dk);border-radius:999px;padding:6px 16px;font-weight:700;font-size:19px}
+.intro{margin:14px 0 0}
+.progress{position:sticky;top:0;z-index:10;background:var(--bg);padding:10px 0 12px;border-bottom:2px solid var(--line);margin:18px 0 0}
+.progress p{margin:0 0 6px;font-weight:700;font-size:20px}
+.bar{height:14px;background:#dbe2e2;border-radius:999px;overflow:hidden}
+.bar i{display:block;height:100%;width:20%;background:var(--main);border-radius:999px;transition:width .3s}
+.part{margin-top:34px}
+.part h2{font-size:26px;line-height:1.3;margin:0 0 6px;color:var(--main-dk);font-weight:800}
+.pnum{display:block;font-size:18px;color:var(--rose);font-weight:700;text-transform:uppercase;letter-spacing:.03em}
+.q{border:0;margin:22px 0 0;padding:18px 16px 20px;background:#fff;border-radius:16px;box-shadow:0 1px 0 var(--line);min-width:0;scroll-margin-top:110px}
+.q legend,.q .legend{display:block;float:left;width:100%;font-size:22px;font-weight:700;line-height:1.4;margin:0 0 14px;padding:0}
+.q .hint,.q .err,.q .opts,.q textarea{clear:both}
+.qn{color:var(--main)}
+.req{color:var(--rose)}
+.opt-lbl{font-weight:400;font-size:18px;color:#4a4c4f}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hint{margin:0 0 12px;font-size:19px;color:#4a4c4f}
+.opts{display:flex;flex-direction:column;gap:14px}
+.opt{position:relative;display:block;cursor:pointer}
+.opt input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+.opt span{display:flex;align-items:center;gap:14px;min-height:60px;padding:10px 18px;border:3px solid var(--line);border-radius:14px;background:#fff;font-size:21px;font-weight:600;line-height:1.3}
+.emo{font-size:30px;font-weight:400;line-height:1}
+.opt span::after{content:"";margin-left:auto;flex:0 0 28px;height:28px;border:3px solid var(--line);border-radius:50%}
+.multi .opt span::after{border-radius:6px}
+.opt input:checked+span{border-color:var(--main);background:#e3f3f2;color:#012f2f}
+.opt input:checked+span::after{border-color:var(--main);background:var(--main) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='%23fff' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/20px no-repeat}
+.opt input:focus-visible+span{outline:4px solid var(--orange);outline-offset:3px}
+@media (hover:hover){.opt:hover span{border-color:var(--main)}}
+textarea{display:block;width:100%;min-height:150px;padding:14px 16px;font:inherit;font-size:20px;color:var(--txt);border:3px solid var(--line);border-radius:14px;background:#fff;resize:vertical}
+textarea:focus-visible{outline:4px solid var(--orange);outline-offset:3px;border-color:var(--main)}
+.q.invalid{box-shadow:0 0 0 4px var(--rose)}
+.err{margin:0 0 12px;color:var(--rose);font-weight:700;font-size:20px}
+.err::before{content:"⚠️ "}
+.summary{margin:28px 0 0;padding:16px 18px;border:3px solid var(--rose);background:#fff0f5;border-radius:14px;color:#8a0034;font-weight:700}
+.summary:focus{outline:4px solid var(--orange);outline-offset:3px}
+.send{display:block;width:100%;min-height:72px;margin:30px 0 0;padding:14px 20px;border:0;border-radius:16px;background:var(--rose);color:#fff;font:inherit;font-size:24px;font-weight:800;cursor:pointer;box-shadow:0 4px 0 #8a0034}
+.send:focus-visible{outline:4px solid var(--orange);outline-offset:4px}
+.send:active{transform:translateY(2px);box-shadow:0 2px 0 #8a0034}
+.send[disabled]{opacity:.7;cursor:wait}
+.foot{margin:24px 0 0;font-size:18px;color:#4a4c4f;text-align:center}
+.honey{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+</style>
+</head>
+<body>
+<div class="band" aria-hidden="true"></div>
+<div class="wrap">
+<header class="top">
+  <p class="org">UFOLEP · Ateliers mémoire</p>
+  <h1>Votre avis sur les ateliers « Mémoire et cognition »</h1>
+  <span class="pill">Questionnaire anonyme · 3 minutes</span>
+  <p class="intro">Touchez la réponse qui vous correspond. Les questions marquées d'une étoile <span class="req">*</span> sont obligatoires. Merci&nbsp;!</p>
+</header>
+
+<div class="progress" aria-hidden="true">
+  <p id="prog-txt">Partie 1 sur 5</p>
+  <div class="bar"><i id="prog-bar"></i></div>
+</div>
+
+<form id="form" action="https://formsubmit.co/thomas22751@gmail.com" method="POST" accept-charset="UTF-8">
+  <input type="hidden" name="_subject" value="Satisfaction ateliers mémoire – nouvelle réponse">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="https://nicepowpowloko.github.io/questionnaire-ateliers-memoire/merci.html">
+  <div class="honey" aria-hidden="true"><label>Ne pas remplir <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+
+  <!-- ============ PARTIE 1 ============ -->
+  <section class="part" id="partie-1" data-part="1">
+    <h2><span class="pnum">Partie 1 sur 5</span>Vous</h2>
+
+    <fieldset class="q required" id="q01" data-required>
+      <legend><span class="qn">1.</span> Dans quel groupe étiez-vous ? <span class="req" aria-hidden="true">*</span><span class="sr">(obligatoire)</span></legend>
+      <p class="err" role="alert" hidden>Merci de choisir une réponse.</p>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="Q01 Groupe" value="Groupe 1" required><span>Groupe 1</span></label>
+        <label class="opt"><input type="radio" name="Q01 Groupe" value="Groupe 2"><span>Groupe 2</span></label>
+        <label class="opt"><input type="radio" name="Q01 Groupe" value="Groupe 3"><span>Groupe 3</span></label>
+        <label class="opt"><input type="radio" name="Q01 Groupe" value="Je ne sais pas"><span>Je ne sais pas</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="q" id="q02">
+      <legend><span class="qn">2.</span> Votre tranche d'âge <span class="opt-lbl">(facultatif)</span></legend>
+      <p class="err" role="alert" hidden>Merci de choisir une réponse.</p>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="Q02 Tranche d'âge" value="Moins de 65 ans"><span>Moins de 65 ans</span></label>
+        <label class="opt"><input type="radio" name="Q02 Tranche d'âge" value="65 à 69 ans"><span>65 à 69 ans</span></label>
+        <label class="opt"><input type="radio" name="Q02 Tranche d'âge" value="70 à 74 ans"><span>70 à 74 ans</span></label>
+        <label class="opt"><input type="radio" name="Q02 Tranche d'âge" value="75 à 79 ans"><span>75 à 79 ans</span></label>
+        <label class="opt"><input type="radio" name="Q02 Tranche d'âge" value="80 ans et plus"><span>80 ans et plus</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="q required" id="q03" data-required>
+      <legend><span class="qn">3.</span> À combien de séances avez-vous participé ? <span class="req" aria-hidden="true">*</span><span class="sr">(obligatoire)</span></legend>
+      <p class="err" role="alert" hidden>Merci de choisir une réponse.</p>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="Q03 Nombre de séances" value="1" required><span>1 séance</span></label>
+        <label class="opt"><input type="radio" name="Q03 Nombre de séances" value="2"><span>2 séances</span></label>
+        <label class="opt"><input type="radio" name="Q03 Nombre de séances" value="3"><span>3 séances</span></label>
+        <label class="opt"><input type="radio" name="Q03 Nombre de séances" value="4"><span>Les 4 séances</span></label>
+      </div>
+    </fieldset>
+  </section>
+
+  <!-- ============ PARTIE 2 ============ -->
+  <section class="part" id="partie-2" data-part="2">
+    <h2><span class="pnum">Partie 2 sur 5</span>Votre satisfaction générale</h2>
+
+    <fieldset class="q required" id="q04" data-required>
+      <legend><span class="qn">4.</span> Globalement, êtes-vous satisfait(e) des ateliers mémoire ? <span class="req" aria-hidden="true">*</span><span class="sr">(obligatoire)</span></legend>
+      <p class="err" role="alert" hidden>Merci de choisir une réponse.</p>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="Q04 Satisfaction globale" value="1 - Pas du tout" required><span><b class="emo" aria-hidden="true">😞</b>Pas du tout</span></label>
+        <label class="opt"><input type="radio" name="Q04 Satisfaction globale" value="2 - Peu"><span><b class="emo" aria-hidden="true">🙁</b>Peu</span></label>
+        <label class="opt"><input type="radio" name="Q04 Satisfaction globale" value="3 - Moyennement"><span><b class="emo" aria-hidden="true">😐</b>Moyennement</span></label>
+        <label class="opt"><input type="radio" name="Q04 Satisfaction globale" value="4 - Satisfait(e)"><span><b class="emo" aria-hidden="true">🙂</b>Satisfait(e)</span></label>
+        <label class="opt"><input type="radio" name="Q04 Satisfaction globale" value="5 - Très satisfait(e)"><span><b class="emo" aria-hidden="true">😃</b>Très satisfait(e)</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="q required" id="q05" data-required>
+      <legend><span class="qn">5.</span> Recommanderiez-vous ces ateliers à un proche ? <span class="req" aria-hidden="true">*</span><span class="sr">(obligatoire)</span></legend>
+      <p class="err" role="alert" hidden>Merci de choisir une réponse.</p>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="Q05 Recommandation" value="Oui, certainement" required><span><b class="emo" aria-hidden="true">😃</b>Oui, certainement</span></label>
+        <label class="opt"><input type="radio" name="Q05 Recommandation" value="Oui, probablement"><span><b class="emo" aria-hidden="true">🙂</b>Oui, probablement</span></label>
+        <label class="opt"><input type="radio" name="Q05 Recommandation" value="Non, probablement pas"><span><b class="emo" aria-hidden="true">🙁</b>Non, probablement pas</span></label>
+        <label class="opt"><input type="radio" name="Q05 Recommandation" value="Non, certainement pas"><span><b class="emo" aria-hidden="true">😞</b>Non, certainement pas</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="q required" id="q06" data-required>
+      <legend><span class="qn">6.</span> Les ateliers ont-ils répondu à vos attentes ? <span class="req" aria-hidden="true">*</span><span class="sr">(obligatoire)</span></legend>
+      <p class="err" role="alert" hidden>Merci de choisir une réponse.</p>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="Q06 Réponse aux attentes" value="Totalement" required><span><b class="emo" aria-hidden="true">😃</b>Totalement</span></label>
+        <label class="opt"><input type="radio" name="Q06 Réponse aux attentes" value="En grande partie"><span><b class="emo" aria-hidden="true">🙂</b>En grande partie</span></label>
+        <label class="opt"><input type="radio" name="Q06 Réponse aux attentes" value="En partie"><span><b class="emo" aria-hidden="true">😐</b>En partie</span></label>
+        <label class="opt"><input type="radio" name="Q06 Réponse aux attentes" value="Pas du tout"><span><b class="emo" aria-hidden="true">😞</b>Pas du tout</span></label>
+      </div>
+    </fieldset>
+  </section>
+
+  <!-- ============ PARTIE 3 ============ -->
+  <section class="part" id="partie-3" data-part="3">
+    <h2><span class="pnum">Partie 3 sur 5</span>Le contenu et l'organisation</h2>
+
+    <fieldset class="q required" id="q07" data-required>
+      <legend><span class="qn">7.</span> Les objectifs de chaque séance étaient clairs <span class="req" aria-hidden="true">*</span><span class="sr">(obligatoire)</span></legend>
+      <p class="err" role="alert" hidden>Merci de choisir une réponse.</p>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="Q07 Objectifs clairs" value="Pas du tout d'accord" required><span><b class="emo" aria-hidden="true">😞</b>Pas du tout d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q07 Objectifs clairs" value="Plutôt pas d'accord"><span><b class="emo" aria-hidden="true">🙁</b>Plutôt pas d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q07 Objectifs clairs" value="Plutôt d'accord"><span><b class="emo" aria-hidden="true">🙂</b>Plutôt d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q07 Objectifs clairs" value="Tout à fait d'accord"><span><b class="emo" aria-hidden="true">😃</b>Tout à fait d'accord</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="q required" id="q08" data-required>
+      <legend><span class="qn">8.</span> Les explications sur la mémoire et le cerveau étaient compréhensibles <span class="req" aria-hidden="true">*</span><span class="sr">(obligatoire)</span></legend>
+      <p class="err" role="alert" hidden>Merci de choisir une réponse.</p>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="Q08 Explications compréhensibles" value="Pas du tout d'accord" required><span><b class="emo" aria-hidden="true">😞</b>Pas du tout d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q08 Explications compréhensibles" value="Plutôt pas d'accord"><span><b class="emo" aria-hidden="true">🙁</b>Plutôt pas d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q08 Explications compréhensibles" value="Plutôt d'accord"><span><b class="emo" aria-hidden="true">🙂</b>Plutôt d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q08 Explications compréhensibles" value="Tout à fait d'accord"><span><b class="emo" aria-hidden="true">😃</b>Tout à fait d'accord</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="q required" id="q09" data-required>
+      <legend><span class="qn">9.</span> Les exercices et les jeux étaient variés et intéressants <span class="req" aria-hidden="true">*</span><span class="sr">(obligatoire)</span></legend>
+      <p class="err" role="alert" hidden>Merci de choisir une réponse.</p>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="Q09 Exercices variés et intéressants" value="Pas du tout d'accord" required><span><b class="emo" aria-hidden="true">😞</b>Pas du tout d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q09 Exercices variés et intéressants" value="Plutôt pas d'accord"><span><b class="emo" aria-hidden="true">🙁</b>Plutôt pas d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q09 Exercices variés et intéressants" value="Plutôt d'accord"><span><b class="emo" aria-hidden="true">🙂</b>Plutôt d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q09 Exercices variés et intéressants" value="Tout à fait d'accord"><span><b class="emo" aria-hidden="true">😃</b>Tout à fait d'accord</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="q required" id="q10" data-required>
+      <legend><span class="qn">10.</span> Le niveau de difficulté des exercices était… <span class="req" aria-hidden="true">*</span><span class="sr">(obligatoire)</span></legend>
+      <p class="err" role="alert" hidden>Merci de choisir une réponse.</p>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="Q10 Niveau de difficulté" value="Trop facile" required><span>Trop facile</span></label>
+        <label class="opt"><input type="radio" name="Q10 Niveau de difficulté" value="Adapté"><span>Adapté</span></label>
+        <label class="opt"><input type="radio" name="Q10 Niveau de difficulté" value="Trop difficile"><span>Trop difficile</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="q required" id="q11" data-required>
+      <legend><span class="qn">11.</span> La durée des séances (2 heures) était… <span class="req" aria-hidden="true">*</span><span class="sr">(obligatoire)</span></legend>
+      <p class="err" role="alert" hidden>Merci de choisir une réponse.</p>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="Q11 Durée des séances" value="Trop courte" required><span>Trop courte</span></label>
+        <label class="opt"><input type="radio" name="Q11 Durée des séances" value="Adaptée"><span>Adaptée</span></label>
+        <label class="opt"><input type="radio" name="Q11 Durée des séances" value="Trop longue"><span>Trop longue</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="q required" id="q12" data-required>
+      <legend><span class="qn">12.</span> Les supports projetés (écran, jeux interactifs) étaient lisibles et agréables <span class="req" aria-hidden="true">*</span><span class="sr">(obligatoire)</span></legend>
+      <p class="err" role="alert" hidden>Merci de choisir une réponse.</p>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="Q12 Supports projetés" value="Pas du tout d'accord" required><span><b class="emo" aria-hidden="true">😞</b>Pas du tout d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q12 Supports projetés" value="Plutôt pas d'accord"><span><b class="emo" aria-hidden="true">🙁</b>Plutôt pas d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q12 Supports projetés" value="Plutôt d'accord"><span><b class="emo" aria-hidden="true">🙂</b>Plutôt d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q12 Supports projetés" value="Tout à fait d'accord"><span><b class="emo" aria-hidden="true">😃</b>Tout à fait d'accord</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="q required" id="q13" data-required>
+      <legend><span class="qn">13.</span> L'organisation pratique (horaires, salle, accueil) était satisfaisante <span class="req" aria-hidden="true">*</span><span class="sr">(obligatoire)</span></legend>
+      <p class="err" role="alert" hidden>Merci de choisir une réponse.</p>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="Q13 Organisation pratique" value="Pas du tout d'accord" required><span><b class="emo" aria-hidden="true">😞</b>Pas du tout d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q13 Organisation pratique" value="Plutôt pas d'accord"><span><b class="emo" aria-hidden="true">🙁</b>Plutôt pas d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q13 Organisation pratique" value="Plutôt d'accord"><span><b class="emo" aria-hidden="true">🙂</b>Plutôt d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q13 Organisation pratique" value="Tout à fait d'accord"><span><b class="emo" aria-hidden="true">😃</b>Tout à fait d'accord</span></label>
+      </div>
+    </fieldset>
+  </section>
+
+  <!-- ============ PARTIE 4 ============ -->
+  <section class="part" id="partie-4" data-part="4">
+    <h2><span class="pnum">Partie 4 sur 5</span>L'animation et le groupe</h2>
+
+    <fieldset class="q required" id="q14" data-required>
+      <legend><span class="qn">14.</span> L'animateur expliquait clairement <span class="req" aria-hidden="true">*</span><span class="sr">(obligatoire)</span></legend>
+      <p class="err" role="alert" hidden>Merci de choisir une réponse.</p>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="Q14 Clarté de l'animateur" value="Pas du tout d'accord" required><span><b class="emo" aria-hidden="true">😞</b>Pas du tout d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q14 Clarté de l'animateur" value="Plutôt pas d'accord"><span><b class="emo" aria-hidden="true">🙁</b>Plutôt pas d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q14 Clarté de l'animateur" value="Plutôt d'accord"><span><b class="emo" aria-hidden="true">🙂</b>Plutôt d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q14 Clarté de l'animateur" value="Tout à fait d'accord"><span><b class="emo" aria-hidden="true">😃</b>Tout à fait d'accord</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="q required" id="q15" data-required>
+      <legend><span class="qn">15.</span> L'animateur était à l'écoute et disponible pour répondre aux questions <span class="req" aria-hidden="true">*</span><span class="sr">(obligatoire)</span></legend>
+      <p class="err" role="alert" hidden>Merci de choisir une réponse.</p>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="Q15 Écoute de l'animateur" value="Pas du tout d'accord" required><span><b class="emo" aria-hidden="true">😞</b>Pas du tout d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q15 Écoute de l'animateur" value="Plutôt pas d'accord"><span><b class="emo" aria-hidden="true">🙁</b>Plutôt pas d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q15 Écoute de l'animateur" value="Plutôt d'accord"><span><b class="emo" aria-hidden="true">🙂</b>Plutôt d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q15 Écoute de l'animateur" value="Tout à fait d'accord"><span><b class="emo" aria-hidden="true">😃</b>Tout à fait d'accord</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="q required" id="q16" data-required>
+      <legend><span class="qn">16.</span> L'ambiance du groupe et le travail en équipes étaient agréables <span class="req" aria-hidden="true">*</span><span class="sr">(obligatoire)</span></legend>
+      <p class="err" role="alert" hidden>Merci de choisir une réponse.</p>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="Q16 Ambiance du groupe" value="Pas du tout d'accord" required><span><b class="emo" aria-hidden="true">😞</b>Pas du tout d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q16 Ambiance du groupe" value="Plutôt pas d'accord"><span><b class="emo" aria-hidden="true">🙁</b>Plutôt pas d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q16 Ambiance du groupe" value="Plutôt d'accord"><span><b class="emo" aria-hidden="true">🙂</b>Plutôt d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q16 Ambiance du groupe" value="Tout à fait d'accord"><span><b class="emo" aria-hidden="true">😃</b>Tout à fait d'accord</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="q required" id="q17" data-required>
+      <legend><span class="qn">17.</span> J'ai pu participer et m'exprimer autant que je le souhaitais <span class="req" aria-hidden="true">*</span><span class="sr">(obligatoire)</span></legend>
+      <p class="err" role="alert" hidden>Merci de choisir une réponse.</p>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="Q17 Participation et expression" value="Pas du tout d'accord" required><span><b class="emo" aria-hidden="true">😞</b>Pas du tout d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q17 Participation et expression" value="Plutôt pas d'accord"><span><b class="emo" aria-hidden="true">🙁</b>Plutôt pas d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q17 Participation et expression" value="Plutôt d'accord"><span><b class="emo" aria-hidden="true">🙂</b>Plutôt d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q17 Participation et expression" value="Tout à fait d'accord"><span><b class="emo" aria-hidden="true">😃</b>Tout à fait d'accord</span></label>
+      </div>
+    </fieldset>
+  </section>
+
+  <!-- ============ PARTIE 5 ============ -->
+  <section class="part" id="partie-5" data-part="5">
+    <h2><span class="pnum">Partie 5 sur 5</span>Ce que vous en retirez et vos idées</h2>
+
+    <fieldset class="q required" id="q18" data-required>
+      <legend><span class="qn">18.</span> J'ai appris des choses sur le fonctionnement de ma mémoire <span class="req" aria-hidden="true">*</span><span class="sr">(obligatoire)</span></legend>
+      <p class="err" role="alert" hidden>Merci de choisir une réponse.</p>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="Q18 Apprentissages sur la mémoire" value="Pas du tout d'accord" required><span><b class="emo" aria-hidden="true">😞</b>Pas du tout d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q18 Apprentissages sur la mémoire" value="Plutôt pas d'accord"><span><b class="emo" aria-hidden="true">🙁</b>Plutôt pas d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q18 Apprentissages sur la mémoire" value="Plutôt d'accord"><span><b class="emo" aria-hidden="true">🙂</b>Plutôt d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q18 Apprentissages sur la mémoire" value="Tout à fait d'accord"><span><b class="emo" aria-hidden="true">😃</b>Tout à fait d'accord</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="q required" id="q19" data-required>
+      <legend><span class="qn">19.</span> J'ai découvert des astuces que je vais utiliser au quotidien <span class="req" aria-hidden="true">*</span><span class="sr">(obligatoire)</span></legend>
+      <p class="err" role="alert" hidden>Merci de choisir une réponse.</p>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="Q19 Astuces pour le quotidien" value="Pas du tout d'accord" required><span><b class="emo" aria-hidden="true">😞</b>Pas du tout d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q19 Astuces pour le quotidien" value="Plutôt pas d'accord"><span><b class="emo" aria-hidden="true">🙁</b>Plutôt pas d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q19 Astuces pour le quotidien" value="Plutôt d'accord"><span><b class="emo" aria-hidden="true">🙂</b>Plutôt d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q19 Astuces pour le quotidien" value="Tout à fait d'accord"><span><b class="emo" aria-hidden="true">😃</b>Tout à fait d'accord</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="q required" id="q20" data-required>
+      <legend><span class="qn">20.</span> Je me sens plus confiant(e) vis-à-vis de ma mémoire <span class="req" aria-hidden="true">*</span><span class="sr">(obligatoire)</span></legend>
+      <p class="err" role="alert" hidden>Merci de choisir une réponse.</p>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="Q20 Confiance en sa mémoire" value="Pas du tout d'accord" required><span><b class="emo" aria-hidden="true">😞</b>Pas du tout d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q20 Confiance en sa mémoire" value="Plutôt pas d'accord"><span><b class="emo" aria-hidden="true">🙁</b>Plutôt pas d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q20 Confiance en sa mémoire" value="Plutôt d'accord"><span><b class="emo" aria-hidden="true">🙂</b>Plutôt d'accord</span></label>
+        <label class="opt"><input type="radio" name="Q20 Confiance en sa mémoire" value="Tout à fait d'accord"><span><b class="emo" aria-hidden="true">😃</b>Tout à fait d'accord</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="q" id="q21" data-join="Q21 Ateliers préférés">
+      <legend><span class="qn">21.</span> Quels ateliers avez-vous préférés ? <span class="opt-lbl">(facultatif)</span></legend>
+      <p class="hint">Vous pouvez cocher plusieurs réponses.</p>
+      <p class="err" role="alert" hidden>Merci de choisir une réponse.</p>
+      <div class="opts multi">
+        <label class="opt"><input type="checkbox" value="Le quiz sur la mémoire"><span>Le quiz sur la mémoire</span></label>
+        <label class="opt"><input type="checkbox" value="Le texte d'Alphonse Daudet"><span>Le texte d'Alphonse Daudet</span></label>
+        <label class="opt"><input type="checkbox" value="L'observation d'une scène"><span>L'observation d'une scène</span></label>
+        <label class="opt"><input type="checkbox" value="Les personnalités"><span>Les personnalités</span></label>
+        <label class="opt"><input type="checkbox" value="Le blind test musical"><span>Le blind test musical</span></label>
+        <label class="opt"><input type="checkbox" value="Les exercices de concentration"><span>Les exercices de concentration</span></label>
+        <label class="opt"><input type="checkbox" value="L'imagerie mentale"><span>L'imagerie mentale</span></label>
+        <label class="opt"><input type="checkbox" value="La liste de courses et le calcul en chaîne"><span>La liste de courses et le calcul en chaîne</span></label>
+        <label class="opt"><input type="checkbox" value="La grille de couleurs"><span>La grille de couleurs</span></label>
+        <label class="opt"><input type="checkbox" value="Les histoires écoutées"><span>Les histoires écoutées</span></label>
+        <label class="opt"><input type="checkbox" value="Le mot mystère, l'intrus, « Qui suis-je ? »"><span>Le mot mystère, l'intrus, « Qui suis-je ? »</span></label>
+        <label class="opt"><input type="checkbox" value="Le parcours des nombres"><span>Le parcours des nombres</span></label>
+        <label class="opt"><input type="checkbox" value="Le jeu des paires"><span>Le jeu des paires</span></label>
+        <label class="opt"><input type="checkbox" value="Les explications sur le cerveau"><span>Les explications sur le cerveau</span></label>
+        <label class="opt"><input type="checkbox" value="L'empan de chiffres"><span>L'empan de chiffres</span></label>
+        <label class="opt"><input type="checkbox" value="Les blocs de Corsi"><span>Les blocs de Corsi</span></label>
+        <label class="opt"><input type="checkbox" value="Le palais mental"><span>Le palais mental</span></label>
+        <label class="opt"><input type="checkbox" value="Le N-back"><span>Le N-back</span></label>
+        <label class="opt"><input type="checkbox" value="Noms et métiers"><span>Noms et métiers</span></label>
+        <label class="opt"><input type="checkbox" value="Les faux souvenirs"><span>Les faux souvenirs</span></label>
+        <label class="opt"><input type="checkbox" value="Le test de Stroop"><span>Le test de Stroop</span></label>
+        <label class="opt"><input type="checkbox" value="La comparaison avec la population"><span>La comparaison avec la population</span></label>
+      </div>
+    </fieldset>
+    <input type="hidden" name="Q21 Ateliers préférés" value="">
+
+    <div class="q" id="q22">
+      <label class="legend" for="q22-t"><span class="qn">22.</span> Qu'avez-vous le plus apprécié ? <span class="opt-lbl">(facultatif)</span></label>
+      <textarea id="q22-t" name="Q22 Ce qui a été le plus apprécié" rows="4" placeholder="Écrivez ici si vous le souhaitez"></textarea>
+    </div>
+
+    <div class="q" id="q23">
+      <label class="legend" for="q23-t"><span class="qn">23.</span> Que pourrions-nous améliorer ? <span class="opt-lbl">(facultatif)</span></label>
+      <textarea id="q23-t" name="Q23 Pistes d'amélioration" rows="4" placeholder="Écrivez ici si vous le souhaitez"></textarea>
+    </div>
+
+    <div class="q" id="q24">
+      <label class="legend" for="q24-t"><span class="qn">24.</span> Quels thèmes aimeriez-vous aborder lors de prochains ateliers ? <span class="opt-lbl">(facultatif)</span></label>
+      <textarea id="q24-t" name="Q24 Thèmes souhaités" rows="4" placeholder="Écrivez ici si vous le souhaitez"></textarea>
+    </div>
+
+    <fieldset class="q required" id="q25" data-required>
+      <legend><span class="qn">25.</span> Souhaiteriez-vous participer à un nouveau cycle d'ateliers ? <span class="req" aria-hidden="true">*</span><span class="sr">(obligatoire)</span></legend>
+      <p class="err" role="alert" hidden>Merci de choisir une réponse.</p>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="Q25 Nouveau cycle" value="Oui" required><span><b class="emo" aria-hidden="true">😃</b>Oui</span></label>
+        <label class="opt"><input type="radio" name="Q25 Nouveau cycle" value="Peut-être"><span><b class="emo" aria-hidden="true">😐</b>Peut-être</span></label>
+        <label class="opt"><input type="radio" name="Q25 Nouveau cycle" value="Non"><span><b class="emo" aria-hidden="true">😞</b>Non</span></label>
+      </div>
+    </fieldset>
+  </section>
+
+  <div class="summary" id="summary" tabindex="-1" role="alert" hidden></div>
+  <button type="submit" class="send" id="send">Envoyer mes réponses</button>
+  <p class="foot">Vos réponses sont anonymes. Merci pour votre participation&nbsp;!</p>
+</form>
+</div>
+
+<script>
+(function(){
+  var form=document.getElementById('form');
+  form.noValidate=true; // on gère nous-mêmes les messages en français
+
+  // Barre de progression « Partie X sur 5 »
+  var parts=[].slice.call(document.querySelectorAll('.part'));
+  var txt=document.getElementById('prog-txt'),bar=document.getElementById('prog-bar');
+  function updateProgress(){
+    var cur=1,lim=window.innerHeight*0.4;
+    parts.forEach(function(p){if(p.getBoundingClientRect().top<lim)cur=+p.dataset.part});
+    txt.textContent='Partie '+cur+' sur 5';bar.style.width=(cur*20)+'%';
+  }
+  window.addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+
+  // Retire l'erreur dès qu'on répond
+  form.addEventListener('change',function(e){
+    var fs=e.target.closest('fieldset');
+    if(fs&&fs.classList.contains('invalid')&&answered(fs)){fs.classList.remove('invalid');fs.querySelector('.err').hidden=true;
+      if(!form.querySelector('fieldset.invalid'))document.getElementById('summary').hidden=true;}
+  });
+  function answered(fs){return !!fs.querySelector('input:checked')}
+
+  form.addEventListener('submit',function(e){
+    var missing=[];
+    [].forEach.call(form.querySelectorAll('fieldset[data-required]'),function(fs){
+      var ok=answered(fs);fs.classList.toggle('invalid',!ok);fs.querySelector('.err').hidden=ok;
+      if(!ok)missing.push(fs);
+    });
+    var sum=document.getElementById('summary');
+    if(missing.length){
+      e.preventDefault();
+      var nums=missing.map(function(fs){return parseInt(fs.id.slice(1),10)});
+      sum.textContent=(missing.length===1?'Il manque une réponse à la question '+nums[0]:'Il manque des réponses aux questions '+nums.join(', '))+'. Nous vous y emmenons.';
+      sum.hidden=false;
+      missing[0].scrollIntoView({block:'start'});
+      var first=missing[0].querySelector('input');setTimeout(function(){first.focus({preventScroll:true})},50);
+      return;
+    }
+    sum.hidden=true;
+    // Cases à cocher multiples : regroupées en un seul champ lisible dans l'e-mail
+    [].forEach.call(form.querySelectorAll('fieldset[data-join]'),function(fs){
+      var vals=[].map.call(fs.querySelectorAll('input:checked'),function(i){return i.value});
+      form.querySelector('input[type=hidden][name="'+fs.dataset.join+'"]').value=vals.join(' · ')||'(aucun)';
+    });
+    var b=document.getElementById('send');b.disabled=true;b.textContent='Envoi en cours…';
+  });
+  // Si on revient en arrière après l'envoi, on réactive le bouton
+  window.addEventListener('pageshow',function(){var b=document.getElementById('send');b.disabled=false;b.textContent='Envoyer mes réponses'});
+})();
+</script>
+</body>
+</html>
