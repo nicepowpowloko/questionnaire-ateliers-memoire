@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Affiche QR code · Votre avis sur les ateliers mémoire</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+@page{size:A4 portrait;margin:0}
+*{box-sizing:border-box}
+html,body{margin:0;background:#d9dede}
+body{font-family:"Open Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:#28292b;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;height:297mm;margin:10mm auto;background:#fff;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.15)}
+.band{height:9mm;background:linear-gradient(90deg,#b53387,#e20054 24%,#ee8010 47%,#afcc57 74%,#04a1a0)}
+.in{flex:1;display:flex;flex-direction:column;align-items:center;padding:12mm 18mm 10mm;text-align:center}
+.org{margin:0;font-weight:700;color:#037f7e;font-size:14pt;letter-spacing:.06em;text-transform:uppercase}
+h1{margin:4mm 0 3mm;font-size:34pt;line-height:1.12;font-weight:800}
+.sub{margin:0;font-size:17pt;color:#d0004e;font-weight:700}
+.qr{margin:9mm 0 7mm;padding:5mm;border:1.2mm solid #037f7e;border-radius:6mm}
+.qr img{display:block;width:130mm;height:130mm}
+ol{list-style:none;counter-reset:s;margin:0;padding:0;text-align:left;width:100%;max-width:165mm}
+ol li{counter-increment:s;position:relative;padding:0 0 0 15mm;margin:0 0 4mm;font-size:17pt;line-height:1.35;min-height:11mm}
+ol li::before{content:counter(s);position:absolute;left:0;top:-.5mm;width:11mm;height:11mm;border-radius:50%;background:#ee8010;color:#fff;font-weight:800;font-size:16pt;display:flex;align-items:center;justify-content:center}
+.url{margin:auto 0 0;font-size:13pt;color:#28292b}
+.url b{display:block;font-size:14pt;color:#037f7e;word-break:break-all}
+@media print{html,body{background:#fff}.page{margin:0;box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="band"></div>
+  <div class="in">
+    <p class="org">UFOLEP · Ateliers « Mémoire et cognition »</p>
+    <h1>Votre avis sur les ateliers mémoire</h1>
+    <p class="sub">Questionnaire anonyme · 3 minutes</p>
+    <div class="qr"><img src="qrcode.png" alt="QR code du questionnaire"></div>
+    <ol>
+      <li>Ouvrez l'appareil photo de votre téléphone.</li>
+      <li>Visez le QR code, sans prendre de photo, jusqu'à voir apparaître un lien.</li>
+      <li>Touchez le lien, puis répondez aux questions.</li>
+    </ol>
+    <p class="url">Ou tapez cette adresse dans votre navigateur&nbsp;:<b>https://nicepowpowloko.github.io/questionnaire-ateliers-memoire/</b></p>
+  </div>
+</div>
+</body>
+</html>
